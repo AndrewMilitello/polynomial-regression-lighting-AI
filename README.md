@@ -7,7 +7,7 @@ The model analyzes local RGB image patches and predicts polynomial coefficients 
 ## How It Works
 
 1. **Training Data:** Corresponding normal and target-lit images are used to generate training samples.
-2. **Patch Extraction:** Local RGB patches are extracted from the normal image. The corresponding center pixel from the target image serves as the expected output. Input data is expected as shape (image_height, image_width, patch_size, patch_size, 3 [rgb channels])
+2. **Patch Extraction:** Local RGB patches are extracted from the normal image. The corresponding center pixel from the target image serves as the expected output.
 4. **Neural Network:** A custom neural network predicts five polynomial coefficients for each RGB channel.
 5. **Polynomial Transformation:** The predicted coefficients are used to calculate the transformed pixel values.
 6. **Inference and Visualization:** The trained model processes new images, and the curve application strength can be adjusted using interactive sliders.
@@ -68,7 +68,7 @@ Then run:
 python scripts/train.py
 ```
 
-The trained model parameters are saved in `models/model_weights.npz`. A training loss plot is saved in `experiments/`.
+The trained model parameters are saved in `models/trained_model.npz`.
 
 ## Inference
 
