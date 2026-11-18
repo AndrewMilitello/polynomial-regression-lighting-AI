@@ -68,7 +68,7 @@ Then run:
 python scripts/train.py
 ```
 
-The trained model parameters are saved in `models/greenroom.npz`. A training loss plot is saved in `experiments/`.
+The trained model parameters are saved in `models/model_weights.npz`. A training loss plot is saved in `experiments/`.
 
 ## Inference
 
