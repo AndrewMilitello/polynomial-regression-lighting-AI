@@ -5,7 +5,7 @@ from lighting_ai.data import extract_normal_patches
 from lighting_ai.model import Network
 
 
-def infer(normal, weights_path="model_weights.npz", batch_size=50):
+def infer(normal, weights_path="trained_model.npz", batch_size=50):
     predictor = Network(lr=0.0005, ptcount=1)
     weights = np.load(weights_path)
     predictor.hidden_layer.weights = weights["w1"]

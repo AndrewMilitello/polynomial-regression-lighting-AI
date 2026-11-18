@@ -7,8 +7,8 @@ from lighting_ai.config import *
 
 def prepare_training_data(normal_path: Path, lighting_path: Path, n_samples: int = training_size, sample_size: int = sample_size):
     # images for training and inferrence go here
-    normal_image = Image.open(normal_path)
-    lighting_image = Image.open(lighting_path)
+    normal_image = Image.open(normal_path).convert("RGB")
+    lighting_image = Image.open(lighting_path).convert("RGB")
 
     # resize image to fixed resolution
     if max(normal_image.size) > MAX_DIM:
