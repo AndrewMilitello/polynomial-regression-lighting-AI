@@ -20,30 +20,6 @@ For each color channel, the model uses:
 
 where \(x\) is the input pixel value and the network predicts the coefficients \(a,b,c,d,e\).
 
-## Project Structure
-
-```text
-.
-├── configs/              # Configuration files
-├── data/                 # Training and inference images
-├── experiments/          # Training results and plots
-├── models/               # Saved model parameters
-├── scripts/
-│   ├── train.py          # Model training entry point
-│   └── infer.py          # Inference entry point
-├── src/
-│   └── lighting_ai/
-│       ├── config.py
-│       ├── data.py
-│       ├── model.py
-│       ├── training.py
-│       ├── inference.py
-│       └── visualization.py
-├── tests/                # Unit tests
-├── pyproject.toml
-├── requirements.txt
-└── README.md
-```
 
 ## Installation
 
