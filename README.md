@@ -20,7 +20,11 @@ For each color channel, the model uses:
 
 where \(x\) is the input pixel value and the network predicts the coefficients \(a,b,c,d,e\).
 
+## Visualization Controls
 
+Intensity: Controls the overall strength of the lighting effect by blending the processed image with the original. At 0, the original image is displayed; increasing the value makes the lighting effect more prominent. Best near 1.0.
+Blending: Controls how much of the model's predicted lighting is added to the original pixel values. Higher values increase the contribution of the predicted lighting. Best near 0.25.
+Sharpness: Controls the contribution of the lighting boost, which is calculated from the difference between the original pixel values and the model's predictions. Increasing sharpness emphasizes this difference, making the lighting effect more pronounced. Best near 0.75.
 ## Installation
 
 Clone the repository:
