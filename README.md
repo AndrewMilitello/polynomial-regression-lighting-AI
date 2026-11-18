@@ -1,6 +1,6 @@
 # Polynomial Regression Lighting AI
 
-A NumPy-based image-processing project that uses a neural network to learn a mapping between a normal image and a corresponding image with adjusted lighting.
+A NumPy-based image-processing project that uses a neural network to learn a mapping between a normal image and a corresponding image with adjusted lighting. I made this in February-March of 2025.
 
 The model analyzes local RGB image patches and predicts polynomial coefficients used to transform the center pixel. The resulting image can be adjusted interactively through a visualization interface.
 
