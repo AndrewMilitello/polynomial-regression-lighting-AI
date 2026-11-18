@@ -12,10 +12,6 @@ class Linear():
         self.input = input
         self.output = np.dot(input, self.weights) + self.bias
         return self.output
-    def leaky_relu(self, x):
-        return np.where(x > 0, x, x * 0.01)
-
-
 #init neur net architecture
 
 class Network():
@@ -25,7 +21,8 @@ class Network():
         self.hidden_layer = Linear(fan_in=self.input_count, fan_out=hidden_layer_1_size, lr=lr)
         self.hidden_layer_2 = Linear(fan_in=hidden_layer_1_size, fan_out=hidden_layer_2_size, lr=lr)
         self.output_layer = Linear(fan_in=hidden_layer_2_size, fan_out=3 * output_degree, lr=lr)
-
+    def leaky_relu(self, x):
+        return np.where(x > 0, x, x * 0.01)
     def __call__(self, input):
         
         self.last_input = input
@@ -35,6 +32,7 @@ class Network():
         self.hidden2_output = self.leaky_relu(h2)
         self.final_output = self.output_layer.forward(self.hidden2_output)
         return self.final_output
+    
     def parameters(self):
         return [
             (self.hidden_layer.weights, self.hidden_layer.bias),
