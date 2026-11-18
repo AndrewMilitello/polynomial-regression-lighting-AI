@@ -1,12 +1,17 @@
 import numpy as np
+from pathlib import Path
 import matplotlib.pyplot as plt
 from lighting_ai.config import *
 from lighting_ai.model import Network
+from lighting_ai.data import prepare_training_data
+
 
 loss_hist = []
 acc_hist = []
 indices = np.arange(training_size)
 predictor = Network(lr=LEARNING_RATE, ptcount=bsize)
+
+x_train, y_train = prepare_training_data("data/normal.png", "data/target.png")
 
 for e in range(EPOCHS):
     np.random.shuffle(indices)
@@ -20,7 +25,7 @@ for e in range(EPOCHS):
         #emphasize the center patch pixel that we're trying to predict
         mid_idx = ((sample_size**2) // 2) * 3 
         emphasized_mid_x = np.hstack([x, x[:, mid_idx : mid_idx + 3]*5.0])
-        pred = predictor.Predict(emphasized_mid_x)
+        pred = predictor(emphasized_mid_x)
         #calc_error
         #prediction based on the emphasized center pixel, ignoring all the 'blurry' surrounding pixels
         predicted_x = x[:, mid_idx : mid_idx + 3] 
@@ -84,7 +89,8 @@ for e in range(EPOCHS):
         predictor.lr *= 0.95
         loss_hist.append(np.mean(prediction_error**2))
         acc_hist.append((100-(mean_absolute_error*100)))
-    
+
+    Path("models").mkdir(parents=True, exist_ok=True)
     np.savez("model_weights.npz", 
              w1=predictor.hidden_layer.weights, b1=predictor.hidden_layer.bias,
              w2=predictor.hidden_layer_2.weights, b2=predictor.hidden_layer_2.bias,
