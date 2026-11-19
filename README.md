@@ -14,9 +14,7 @@ The model analyzes local RGB image patches and predicts polynomial coefficients 
 
 For each color channel, the model uses:
 
-\[
-\hat y = ax^3 + bx^2 + cx + d + e\sqrt{|x|+\epsilon}
-\]
+$$ \hat{y} = ax^3 + bx^2 + cx + d + e\sqrt{|x|+\epsilon} $$
 
 where \(x\) is the input pixel value and the network predicts the coefficients \(a,b,c,d,e\).
 
